@@ -2,6 +2,7 @@ import unittest
 
 from textnode import TextNode, TextType,text_node_to_html_node
 from htmlnode import HTMLNode, LeafNode, ParentNode
+from inline_markdown import split_nodes_delimiter
 
 class TestTextNode(unittest.TestCase):
     def test_eq(self):
@@ -81,7 +82,16 @@ class TestTextNode(unittest.TestCase):
         self.assertEqual(html_node.tag, "img")
         self.assertEqual(html_node.value, "")
         self.assertEqual(html_node.props["src"], "www.google.com")
-        self.assertEqual(html_node.props["alt"], "Image explanation")        
+        self.assertEqual(html_node.props["alt"], "Image explanation")
+    def test_split_nodes_italic_simple(self):
+        input_nodes = [TextNode("This _is a text_ node", TextType.TEXT)]
+        result = split_nodes_delimiter(input_nodes, "_", TextType.ITALIC)
+
+        expected = [
+            TextNode("This ", TextType.TEXT),
+            TextNode("is a text", TextType.ITALIC),
+            TextNode(" node", TextType.TEXT),
+        ]
+        self.assertEqual(result, expected)
 if __name__ == "__main__":
     unittest.main()
-
