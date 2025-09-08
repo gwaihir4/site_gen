@@ -26,17 +26,14 @@ def split_nodes_delimiter(old_nodes, delimiter, text_type):
                     else:
                         new_nodes.append(TextNode(parts[i], text_type))
     return new_nodes
-
 def extract_markdown_images(text):
 # text = "This is text with a ![rick roll](https://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
 # # [("rick roll", "https://i.imgur.com/aKaOqIh.gif"), ("obi wan", "https://i.imgur.com/fJRm4Vk.jpeg")]
     capture = re.findall(r"!\[([^\[\]]*)\]\(([^\(\)]*)\)", text)
     return capture
-
 def extract_markdown_links(text):
     capture = re.findall(r"(?<!!)\[([^\[\]]*)\]\(([^\(\)]*)\)",text)
     return capture
-
 def split_nodes_image(old_nodes):
     new_nodes =[]
     if len(old_nodes) == 0 : # if input is empty return empty list
@@ -94,7 +91,7 @@ def split_nodes_link(old_nodes):
                 new_nodes.append(TextNode(remaining,TextType.TEXT))
     return new_nodes
 
-def text_to_textnode(text):
+def text_to_textnodes(text):
     new_nodes = [TextNode(text, TextType.TEXT)]
     delimiters = ["_", "**", "`", ]
     if text == "" or None:

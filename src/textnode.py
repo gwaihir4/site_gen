@@ -21,7 +21,6 @@ class TextType(Enum):
 
 
 class TextNode():    
-    # TextType = Enum('TextType', ['TEXT', 'BOLD', 'ITALIC', 'CODE', 'LINK', 'IMAGE'])
     def __init__(self, text, text_type, url = None):
         self.text = text
         self.text_type = text_type #TextType(text_type) 

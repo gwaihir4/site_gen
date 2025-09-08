@@ -1,5 +1,6 @@
+from build_public import build_public
 def main():
-    print("Hello from site-gen!")
+    build_public("static")
 
 
 if __name__ == "__main__":
