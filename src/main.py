@@ -1,9 +1,12 @@
-from textnode import TextNode, TextType
-
+from build_public import build_public
+from generate_page import generate_page
 def main():
-    new_node = TextNode("this is a plain text", TextType.BOLD)
-    new_node2 = TextNode ("text number 2 ", TextType.LINK, "www.google.com")
-    print (new_node)
-    print (new_node2)
+    build_public("static")
+    generate_page("content/index.md", "template.html", "public/index.html")
+    generate_page("content/blog/glorfindel/index.md", "template.html", "public/blog/glorfindel/index.html")
+    generate_page("content/blog/tom/index.md", "template.html", "public/blog/tom/index.html")
+    generate_page("content/blog/majesty/index.md", "template.html", "public/blog/majesty/index.html")
+    generate_page("content/contact/index.md", "template.html", "public/contact/index.html")
 
-main()
+if __name__ == "__main__":
+    main()

@@ -1,7 +1,7 @@
 import unittest
 
 from markdown_blocks import (
-    markdown_to_blocks, markdown_to_html_node
+    markdown_to_blocks, markdown_to_html_node, extract_title
 )
 
 class TestInlineMarkdown(unittest.TestCase):
@@ -78,6 +78,7 @@ This is the same paragraph on a new line
             html,
             "<div><pre><code>This is text that _should_ remain\nthe **same** even with inline stuff\n</code></pre></div>",
         )
-    
+    def test_extract_title1(self):
+        print(extract_title("# Hello"))
 if __name__ == "__main__":
     unittest.main()

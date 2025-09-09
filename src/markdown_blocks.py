@@ -138,9 +138,3 @@ def markdown_to_html_node(markdown):
         block_nodes.append(current_block)
     return ParentNode("div", block_nodes)
 
-def extract_title(markdown):
-    if markdown.startswith("# "):
-        title = markdown.split("\n")[0]
-        return title
-    raise Exception ("H1 title not found")
-
