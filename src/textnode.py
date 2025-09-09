@@ -1,14 +1,6 @@
 from enum import Enum
 from htmlnode import LeafNode  
 
-# class TextType(Enum):
-#     Plain = ""
-#     Bold = ""
-#     Italic = ""
-#     Code = ""
-#     Link = ""
-#     Image = ""
-
 class TextType(Enum):
     TEXT = "text"
     BOLD = "bold"

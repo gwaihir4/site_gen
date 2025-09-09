@@ -1,6 +1,6 @@
 import re
 from enum import Enum
-from htmlnode import HTMLNode,ParentNode,LeafNode
+from htmlnode import ParentNode
 from textnode import text_node_to_html_node,TextNode,TextType
 from inline_markdown import text_to_textnodes
 class BlockType(Enum):
